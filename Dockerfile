@@ -9,7 +9,6 @@ WORKDIR $INSTALL_PATH
 # Place any custom scripts here to alllow docker access to internet
 # in your environment
 
-ADD *.gemspec $INSTALL_PATH
 ADD Gemfile* $INSTALL_PATH
 RUN gem install bundler
 # The below RUN line is commented out for development purposes, because any change to the 
