@@ -1,0 +1,64 @@
+# 'Inferno Platform Template' is only intended as a placeholder
+# Replace the following content with relevant information about this
+# installation of Inferno
+
+title: Inferno Platform Template
+subtitle: Template for hosting your own Inferno Test Kit Platform
+description: >
+  Provide a brief description of the purpose of this Test Kit Platform and
+  who is operating it.  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum
+  eu facilisis sed odio morbi quis commodo odio aenean.
+
+# Links in the navigation header.  These currently match the content in the template
+# site, but you can modify the content and links here as needed.
+navigation_links:
+- title: Test Kits
+  url: /test-kits
+- title: News &amp; Updates
+  url: /news
+- title: Events
+  url: /events
+- title: About
+  url: /about
+
+# The Quick Links are provided on the main page in the first section on the right
+# Use this if you would like to steer users to a specific test or set of tests.
+quick_links:
+  - title: Example Link Title
+    description: >
+      This is a description of a link.  Usually this would be to the most
+      important Test Kit. But it could be to anything (news, additional services,
+      etc).
+    link_text: Use Example Thing
+    link_href: '/test-kits/us-core-test-kit'
+  - title: Another Example Link
+    description: >
+      This is a description of a link.  Usually this would be to the most
+      important Test Kit. But it could be to anything (news, additional services,
+      etc).
+    link_text: Use Example Thing
+    link_href: '/validator'
+
+# This populates the dropdown on the Test Kit list page.  Future versions should
+# make this more intelligent to allow it to be automatically populated based on
+# tags in hosted Test Kits.
+test_kit_tags: [International, US]
+
+# You can pin one or several test kits to the top of the Test Kit list page
+# if you would like to draw attention to these over other Test Kits.
+pinned_test_kits: [us_core_test_kit]
+
+collections:
+  events:
+    sort_by: date
+    output: true
+  news:
+    output: true
+    permalink: /news/:path/
+  test_kits:
+    output: true
+    sort_by: date
+    permalink: /test-kits/:path/
+
+keep_files: ['.keep']

@@ -1,0 +1,28 @@
+---
+---
+
+<!doctype html>
+<html lang="en">
+
+{% include header.html %}
+
+<body data-spy="scroll" data-target="#toc">
+  <div class="flex-wrapper">
+    <div>
+      {% include navigation.html %}
+      {{ content }}
+    </div>
+    {% include footer.html %}
+  </div>
+</body>
+
+<style>
+  .flex-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+</style>
+
+</html>

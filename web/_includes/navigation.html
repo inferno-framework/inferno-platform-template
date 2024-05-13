@@ -1,0 +1,28 @@
+<a href="#content" class="visually-hidden-focusable">Skip to main content</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light align-items-end sticky-top">
+  <div class="container-fluid align-items-end">
+    <a class="navbar-brand" href="/">
+      <div>
+        <span class="header-title">{{ site.title }}</span>
+      </div>
+    </a>
+
+    <!-- static navigation menu -->
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto align-items-end">
+        {% include navigation_links.html %}
+      </ul>
+    </div>
+
+    <!-- dropdown navigation menu -->
+    <div class="dropdown navbar-collapse">
+      <button class="navbar-toggler navbar-nav ms-auto" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <ul class="dropdown-menu">
+        {% include navigation_links.html %}
+      </ul>
+    </div>
+  </div>
+</nav>
+{% include disclaimer_bar.html %}

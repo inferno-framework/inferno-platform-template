@@ -1,0 +1,124 @@
+---
+layout: page
+current_page: About
+---
+
+<div class="container-fluid mt-3">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ page.current_page }}</li>
+    </ol>
+  </nav>
+</div>
+
+<!-- TODO: Determine text to go on this page -->
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Main content -->
+    <!-- Table of contents -->
+    <nav id="toc" class="col-md-3 mt-5 bd-toc order-2" data-toggle="toc">
+      <p class="toc-header">On this page</p>
+    </nav>
+    <div class="col-md-9 order-1 mb-5" id="content">
+      <h1 class="my-3">About {{ site.title }} </h1>
+      <article class="section" id="section1">
+        <h2>Overview</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <p>
+          Inferno tests are packaged in executable Test Kits, which typically
+          target requirements provided by one or more FHIR Implementation
+          Guides. {{site.title}} allows users to execute tests within
+          several Inferno Test Kits. To get started testing, select the
+          Test Kit that targets an Implementation Guide relevant to your system on the <a href="/test-kits/">Test
+            Kits</a> page.
+        </p>
+        <a class="anchor" id="disclaimer"></a>
+        <div class="callout callout-warning">
+          This site is not approved for use to access sensitive data or
+          Protected Health Information (PHI). It is intended for demonstration
+          purposes; users are encouraged to download and run tests locally, as
+          all tests provided on this host are open source and are designed to be
+          portable between environments. Test session data is periodically
+          removed.
+        </div>
+      </article>
+      <article class="section" id="section2">
+        <h2>About the Inferno Framework</h2>
+        <p>
+          All tests that are available on {{ site.title }} are built
+          using the <a href="https://inferno-framework.github.io">Inferno
+          Framework</a>, a framework for creating, executing and sharing FHIR
+          conformance tests. If you are interested in learning how to create
+          your own tests with the Inferno Framework, visit the <a
+          href="https://inferno-framework.github.io/docs/">Inferno Framework
+          documentation site</a>.
+        </p>
+      </article>
+      <article class="section" id="test-kits">
+        <h2>Available Inferno Test Kits</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <p>
+          For a more comprehensive list of Test Kits built using the Inferno
+          Framework, including those not available to be executed on this site,
+          the Inferno team maintains a list of publicly available, open source
+          Test Kits on the <a
+          href="https://inferno-framework.github.io/community/test-kits.html">Inferno Framework
+          community page</a>.
+        </p>
+      </article>
+      <article class="section" id="section4">
+        <h2>Contact the Team</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </p>
+      </article>
+      <a href="#content">Return to top</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .section {
+    margin-bottom: 0;
+  }
+
+  .section h2 {
+    margin-top: 0;
+    scroll-margin-top: 150px;
+  }
+
+  #content {
+    scroll-margin-top: 150px;
+  }
+
+  @media (min-width: 992px) {
+    #toc {
+      position: sticky;
+      top: var(--top-nav-height);
+      height: calc(50vh);
+    }
+  }
+</style>

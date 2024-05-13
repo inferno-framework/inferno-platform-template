@@ -1,0 +1,44 @@
+<div class="event-detail">
+  <time datetime="{{ event.date }}">{{ event.date | date: "%B %-d, %Y" }}</time>
+  <h3>
+    {{ event.name }}
+  </h3>
+
+  {% if event.description %}
+  <p>{{ event.description }}</p>
+  {% endif %}
+
+  {% if event.time %}
+  <time datetime="{{ event.datetime }}">
+    <i class="bi bi-clock"></i>
+    {{ event.time }}
+  </time>
+  {% endif %}
+
+  {% if event.location %}
+  <div>
+    <i class="bi bi-geo-alt"></i>
+    {% if event.location.url %}
+    <a href="{{ event.location.url }}">
+      {{ event.location.name }}
+    </a>
+    {% else %}
+    {{ event.location.name }}
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% if event.files %}
+  <div>
+    <i class="bi bi-file-earmark-easel"></i>
+    {% for file in event.files %}
+    {% assign file_name = file.name -%}
+    {% unless forloop.last %}
+    <a href="{{ file.url }}">{{ file_name }}</a>,
+    {% else %}
+    <a href="{{ file.url }}">{{ file_name }}</a>
+    {% endunless %}
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
