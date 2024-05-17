@@ -12,8 +12,7 @@ services:
       - ./resources:/opt/inferno/resources
       - ./_site:/opt/inferno/_site
     depends_on:
-      # - validator_service
-      - test_kit_validator_service
+      - validator_service
       - inferno_db
   inferno_worker:
     build:
@@ -76,22 +75,16 @@ services:
 ###
 ### Validators
 ###
-  # validator_service:
-  #   image: infernocommunity/fhir-validator-service:v2.2.1
-  #   volumes:
-  #     - ./lib/inferno_platform_template/igs:/home/igs
-  #   mem_limit: 14500m
-  #   restart: unless-stopped
-  test_kit_validator_service:
+  validator_service:
     image: infernocommunity/fhir-validator-service:v2.3.2
     volumes:
-      - ./lib/inferno_deployment/igs:/home/igs
+      - ./lib/inferno_platform_template/igs:/home/igs
     mem_limit: 11500m
     restart: unless-stopped
   fhir_validator_app:
     image: infernocommunity/fhir-validator-app
     depends_on:
-      - test_kit_validator_service
+      - validator_service
     environment:
       EXTERNAL_VALIDATOR_URL: /validatorapi
       VALIDATOR_BASE_PATH: /validator

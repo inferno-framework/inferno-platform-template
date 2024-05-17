@@ -23,8 +23,8 @@ option_groups:
     options:
       - label: SMART App Launch 1.0.0
         value: smart_app_launch_1
-      - label: SMART App Launch 2.0.0,
-        value: smart_app_launch_2,
+      - label: SMART App Launch 2.0.0
+        value: smart_app_launch_2
         default: true
 ---
 
