@@ -32,7 +32,7 @@ namespace :web do
     test_kits.each do |test_kit|
       next if excluded_test_kits.include?(test_kit.id.to_s)
 
-      formatted_id = test_kit.id.to_s.gsub('_', '-').sub(/-?test-kit$/, '')
+      formatted_id = test_kit.id.to_s.dasherize.delete_suffix('-test-kit')
       file_path = File.join(TEST_KIT_PAGE_DIR, "#{formatted_id}.md")
 
       front_matter = {
