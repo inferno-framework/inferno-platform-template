@@ -53,7 +53,7 @@ layout: page
             <legend class="form-title fs-6">Test Suite</legend>
             {% for suite in page.suites %}
             <div class="form-check">
-              {% if forloop.first or suite.default %}
+              {% if forloop.first %}
               <input class="form-check-input" type="radio" name="suite" id="{{ suite.id }}" value="{{ suite.id }}"
                 checked>
               {% else %}
