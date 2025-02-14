@@ -22,7 +22,7 @@ namespace :web do
     ENV['NO_DB'] = 'true'
     Inferno::Application.start(:suites)
 
-    FileUtils.rm_rf(File.join(TEST_KIT_PAGE_DIR, '*.md'))
+    FileUtils.rm_rf(Dir.glob(File.join(TEST_KIT_PAGE_DIR, '*.md')))
 
     config = YAML.safe_load(File.read(File.join(__dir__,'web','_config.yml')))
     excluded_test_kits = config.fetch('excluded_test_kits', [])
