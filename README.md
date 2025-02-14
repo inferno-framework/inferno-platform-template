@@ -81,8 +81,11 @@ customize it to include the relevant Test Kits and content for your platform.
 * First, you should install Ruby to make changes to the platform static content. While not technically required,
   rerunning `./setup.sh` and `./run.sh` will be slow
 * This will allow you to rebuild using Jekyll locally, and serve a copy of the static files
+* Install required gems using `bundle install`.
+* Initialize the sqlite dev database by running `bundle exec rake db:migrate`. While updating content
+  doesn't technically need the database, Inferno's internals assume the availability of certain database files.
 * You can run `bundle exec rake web:serve` to generate the files and view them at `http://localhost:4000`
-* Alternatively, you can run `docker compose run inferno_web bundle exec rake web:generate` to only generate the files
+* Alternatively, you can run `bundle exec rake web:generate` to only generate the files
 * Note that the `web:generate` rake command will first run `web:create_test_kit_pages`, which extracts test kit metadata
   from the test kit gems and places them into markdown files in the `web/_test_kits/` directory.  These files should not
   be committed to the repository, as they are generated automatically prior to Jekyll building the site.
