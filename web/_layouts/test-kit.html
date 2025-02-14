@@ -72,7 +72,7 @@ layout: page
             {% for option in option_group.options %}
             {% assign option_group_suites_id = option_group.suites | join: "-" | append: "-" | append: option_group.id %}
             <div class="form-check">
-              {% if forloop.first or option.default %}
+              {% if forloop.first or option.value == option_group.default %}
               <input class="form-check-input" type="radio" name="{{ option_group.id }}" id="{{ option_group_suites_id }}-{{ option.value }}"
               value="{{ option.value }}" checked data-default="true">
               {% else %}

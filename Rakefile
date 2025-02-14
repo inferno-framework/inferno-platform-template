@@ -54,6 +54,7 @@ namespace :web do
             'title' => option.title,
             'id' => option.id,
             'suites' => [ suite.id ], # This could be a more compact with some processing; ok because generated
+            'default' => option.default,
             'options' => option.list_options.map do |list_option|
               {
                 'label' => list_option[:label],
