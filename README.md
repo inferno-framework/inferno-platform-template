@@ -71,11 +71,6 @@ customize it to include the relevant Test Kits and content for your platform.
   this could also point to a local file or GitHub repo.  See Gemfile
   documentation for information on publishing content to RubyGems.org.
 * Update /lib/inferno_platform_template.rb to include your test kit in the running Inferno application.
-* Currently, Test Kit gems do not quite have enough information to populate the
-  Test Kit list page (/test-kits/) nor the Test Kit details page (e.g. /test-kits/us-core/).  Therefore, you have to add in custom content.
-  * In _test_kits, copy us-core.md to `your-test-kit.md`
-  * Update the content and metadata as needed
-  * Run `./setup.sh`, which includes a command to rebuild the platforms front end.  Changes are reflected in `_site`
 * Add your IG package to lib/inferno_platform_template/igs directory.  This will preload your IG into the validator service
 * Note that all IGs will be loaded into single instance of the validator currently.
 * Also note that we have an improved version of the validator service that will allow you to avoid this step. This will be incorporated into the template soon.
@@ -88,6 +83,9 @@ customize it to include the relevant Test Kits and content for your platform.
 * This will allow you to rebuild using Jekyll locally, and serve a copy of the static files
 * You can run `bundle exec rake web:serve` to generate the files and view them at `http://localhost:4000`
 * Alternatively, you can run `docker compose run inferno_web bundle exec rake web:generate` to only generate the files
+* Note that the `web:generate` rake command will first run `web:create_test_kit_pages`, which extracts test kit metadata
+  from the test kit gems and places them into markdown files in the `web/_test_kits/` directory.  These files should not
+  be committed to the repository, as they are generated automatically prior to Jekyll building the site.
 * All static platform content is contained in `web`, and when generated is placed in `_site`. You
   not need to commit _site content to github as it is regenerated at build time in `./setup.sh`
 * This uses a standard Jekyll setup, so you are free to leverage the capabilities of Jekyll for your site
