@@ -17,14 +17,14 @@ namespace :web do
   desc 'Create test kit pages from test kit metadata'
   task :create_test_kit_pages do
 
-    TEST_KIT_DIR = 'web/_test_kits'
+    TEST_KIT_PAGE_DIR = File.join(__dir__, 'web', '_test_kits')
     require 'inferno'
     ENV['NO_DB'] = 'true'
     Inferno::Application.start(:suites)
 
-    FileUtils.rm_rf(Dir.glob("#{TEST_KIT_DIR}/*.md"))
+    FileUtils.rm_rf(File.join(TEST_KIT_PAGE_DIR, '*.md'))
 
-    config = YAML.safe_load(File.read('web/_config.yml'))
+    config = YAML.safe_load(File.read(File.join(__dir__,'web','_config.yml')))
     excluded_test_kits = config.fetch('excluded_test_kits', [])
 
     test_kits = Inferno::Repositories::TestKits.new.all
@@ -33,7 +33,7 @@ namespace :web do
       next if excluded_test_kits.include?(test_kit.id.to_s)
 
       formatted_id = test_kit.id.to_s.gsub('_', '-').sub(/-?test-kit$/, '')
-      file_path = "#{TEST_KIT_DIR}/#{formatted_id}.md"
+      file_path = File.join(TEST_KIT_PAGE_DIR, "#{formatted_id}.md")
 
       front_matter = {
         'layout' => 'test-kit',
