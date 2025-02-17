@@ -52,7 +52,7 @@ namespace :web do
         suite.suite_options.map do |option|
           {
             'title' => option.title,
-            'id' => option.id,
+            'id' => option.id.to_s,
             'suites' => [ suite.id ], # This could be a more compact with some processing; ok because generated
             'default' => option.default,
             'options' => option.list_options.map do |list_option|
@@ -62,7 +62,7 @@ namespace :web do
                 'default' => list_option[:default]
               }.compact
             end
-          }
+          }.compact
         end
       end.compact
 
