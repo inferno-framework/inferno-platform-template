@@ -9,7 +9,7 @@ gem 'pg'
 # also point to git repos, or with some extra
 # Docker configuration relative directories
 
-gem 'us_core_test_kit', git: 'https://github.com/inferno-framework/us-core-test-kit', branch: 'main'
+gem 'us_core_test_kit'
 gem 'ipa_test_kit', '0.5.0'
 
 gem 'sidekiq-cron'
