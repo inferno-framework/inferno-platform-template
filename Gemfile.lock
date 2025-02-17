@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/inferno-framework/us-core-test-kit.git
-  revision: fb730cabbcc1d0571346804c1b1e8bebe16ba26b
-  branch: fi-3754-us-core-default-smart-launch
+  remote: https://github.com/inferno-framework/us-core-test-kit
+  revision: 3f9dcb6ec7d7e08413992e5f6d757a749bcca083
+  branch: main
   specs:
     us_core_test_kit (0.10.0)
       inferno_core (>= 0.6.4)

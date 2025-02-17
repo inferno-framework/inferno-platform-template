@@ -11,6 +11,7 @@ services:
     volumes:
       - ./resources:/opt/inferno/resources
       - ./_site:/opt/inferno/_site
+      - ./web/_test_kits:/opt/inferno/web/_test_kits
     depends_on:
       - validator_service
       - inferno_db
