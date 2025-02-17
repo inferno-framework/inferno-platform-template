@@ -6,7 +6,7 @@ RUN mkdir -p $INSTALL_PATH
 
 WORKDIR $INSTALL_PATH
 
-# Place any custom scripts here to alllow docker access to internet
+# Place any custom scripts here to allow docker access to internet
 # in your environment
 
 ADD Gemfile* $INSTALL_PATH
