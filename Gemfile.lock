@@ -160,7 +160,7 @@ GEM
     httpclient (2.8.3)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
-    inferno_core (0.6.3)
+    inferno_core (0.6.4)
       activesupport (~> 6.1.7.5)
       base62-rb (= 0.3.1)
       blueprinter (= 0.25.2)
@@ -295,7 +295,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rexml (3.4.0)
+    rexml (3.4.1)
     rouge (4.5.1)
     rspec (3.13.0)
       rspec-core (~> 3.13.0)
@@ -394,7 +394,7 @@ DEPENDENCIES
   pg
   rspec (~> 3.10)
   sidekiq-cron
-  us_core_test_kit (= 0.10.0)
+  us_core_test_kit
   webmock (~> 3.11)
 
 BUNDLED WITH

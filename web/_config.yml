@@ -49,6 +49,10 @@ test_kit_tags: [International, US]
 # if you would like to draw attention to these over other Test Kits.
 pinned_test_kits: [us_core_test_kit]
 
+# Do not show the following test kits.  This is useful when importing
+# tests from other test kits.
+excluded_test_kits: [tls_test_kit]
+
 collections:
   events:
     sort_by: date

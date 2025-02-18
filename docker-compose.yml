@@ -11,6 +11,7 @@ services:
     volumes:
       - ./resources:/opt/inferno/resources
       - ./_site:/opt/inferno/_site
+      - ./web/_test_kits:/opt/inferno/web/_test_kits
     depends_on:
       - validator_service
       - inferno_db
@@ -90,6 +91,19 @@ services:
       VALIDATOR_BASE_PATH: /validator
     mem_limit: 100m
     restart: unless-stopped
+  hl7_validator_service:
+    image: infernocommunity/inferno-resource-validator:1.0.60
+    volumes:
+      - ./lib/inferno_deployment/igs:/app/igs
+      - fhir-package-cache:/home/ktor/.fhir
+    mem_limit: 13000m
+    restart: unless-stopped
+  fhirpath:
+    image: infernocommunity/fhirpath-service
+    ports:
+      - "6789:6789"
+    restart: unless-stopped
+###
 ###
 ### Other Services
 ### Example of using the 'Inferno Reference Server below'
@@ -116,5 +130,8 @@ services:
 #     - fhir-pgdata:/var/lib/postgresql/data
 #   restart: unless-stopped
 #   mem_limit: 600m
-# volumes:
-#  fhir-pgdata:
+
+
+volumes:
+  # fhir-pgdata:
+  fhir-package-cache:

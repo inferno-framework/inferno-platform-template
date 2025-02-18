@@ -53,7 +53,7 @@ layout: page
             <legend class="form-title fs-6">Test Suite</legend>
             {% for suite in page.suites %}
             <div class="form-check">
-              {% if forloop.first or suite.default %}
+              {% if forloop.first %}
               <input class="form-check-input" type="radio" name="suite" id="{{ suite.id }}" value="{{ suite.id }}"
                 checked>
               {% else %}
@@ -70,16 +70,17 @@ layout: page
             data-option-group-for-suites="{{ option_group.suites | join: " ," }}">
             <legend class="form-title fs-6">{{ option_group.title }}</legend>
             {% for option in option_group.options %}
+            {% assign option_group_suites_id = option_group.suites | join: "-" | append: "-" | append: option_group.id %}
             <div class="form-check">
-              {% if forloop.first or option.default %}
-              <input class="form-check-input" type="radio" name="{{ option_group.id }}" id="{{ option.value }}"
-                value="{{ option.value }}" checked>
+              {% if forloop.first or option.value == option_group.default %}
+              <input class="form-check-input" type="radio" name="{{ option_group.id }}" id="{{ option_group_suites_id }}-{{ option.value }}"
+              value="{{ option.value }}" checked data-default="true">
               {% else %}
-              <input class="form-check-input" type="radio" name="{{ option_group.id }}" id="{{ option.value }}"
-                value="{{ option.value }}">
+              <input class="form-check-input" type="radio" name="{{ option_group.id }}" id="{{ option_group_suites_id }}-{{ option.value }}"
+              value="{{ option.value }}">
               {% endif %}
-              <label class="form-check-label" for="{{ option.value }}">
-                {{ option.label }}
+              <label class="form-check-label" for="{{ option_group_suites_id }}-{{ option.value }}">
+              {{ option.label }}
               </label>
             </div>
             {% endfor %}
@@ -112,7 +113,10 @@ layout: page
   // Note that if there is only 1 suite, it won't show up for users
   // but it is still there.
   // Also force triggering this on load so if initial suite select has
-  // options, those get opened
+  // options, those get opened.
+  // And finally, if a suites share the same option names, as is common for
+  // multiple versions of suites, this will auto-select the default option when
+  // switching between suites.
 
   $('#start-testing-form input[type=radio][name=suite]').change(function () {
     const newSuite = this.value;
@@ -123,7 +127,7 @@ layout: page
       const forSuites = $(el).data('option-group-for-suites');
       return forSuites.length === 0 || forSuites.split(",").indexOf(newSuite) > -1;
 
-    }).css("display", "");
+    }).css("display", "").find('input[data-default="true"]').prop('checked', true);
 
   }).filter(":checked").trigger('change');
 
